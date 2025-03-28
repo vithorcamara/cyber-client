@@ -9,7 +9,7 @@ export default function HomePage(){
 
   async function verificarUsuario() {
     try {
-      const response = await axios.get("/auth/perfil",
+      const response = await axios.get("https://cyber-api-7lpa.onrender.com/perfil",
         {withCredentials: true});
       setUser(response.data.usuario)
       console.log(response.data);
@@ -24,7 +24,7 @@ export default function HomePage(){
     }, []);
   
   const handleLogout = () => {
-    axios.get("/auth/logout", { withCredentials: true })
+    axios.get("https://cyber-api-7lpa.onrender.com/logout", { withCredentials: true })
       .then(() => navigate("/login"))
       .catch((error) => console.error("Erro ao deslogar", error));
   };

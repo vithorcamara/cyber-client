@@ -22,7 +22,7 @@ export default function SplashScreen(){
         usuario,
         password,
       })
-      const response = await axios.post("/auth/registrar", {
+      const response = await axios.post("https://cyber-api-7lpa.onrender.com/registrar", {
         usuario,
         senha: password,
         email,
@@ -37,7 +37,7 @@ export default function SplashScreen(){
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("/auth/login", { usuario, senha: password }, { withCredentials: true });
+      const response = await axios.post("https://cyber-api-7lpa.onrender.com/login", { usuario, senha: password }, { withCredentials: true });
       setMessage(response.data.mensagem);
       console.log(response)
       setShowMfa(true);
@@ -48,7 +48,7 @@ export default function SplashScreen(){
 
   const handleVerifyMfa = async () => {
     try {
-      const response = await axios.post("/auth/verificarmfa", { 
+      const response = await axios.post("https://cyber-api-7lpa.onrender.com/verificarmfa", { 
         usuario, 
         codigo_mfa: mfaCode 
       }, { withCredentials: true });
